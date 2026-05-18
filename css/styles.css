@@ -1,0 +1,529 @@
+/* VARIABLES */
+:root {
+    --bg-dark: #07101a;
+    --panel-bg: #111d2e;
+    --panel-border: #1e334d;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --gold: #d4af37;
+    --gold-dim: #8b7322;
+    --blue-neon: #38bdf8;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* RESETEOS BÁSICOS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    padding: 20px;
+    background-image: radial-gradient(circle at top right, #0f2038 0%, var(--bg-dark) 40%);
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* CABECERA (HEADER) */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 20px;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar img {
+    border-radius: 8px; /* Le da un toque suave a las esquinas, ponlo a 0 si lo quieres totalmente cuadrado */
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    width: 140px; /* Puedes subir o bajar este valor para hacerla más ancha o más estrecha */
+    height: 100%; /* Ocupa exactamente toda la altura de los textos */
+    object-fit: cover; /* Evita que la foto se deforme */
+}
+
+.profile-info h1 {
+    font-family: var(--font-heading);
+    color: var(--gold);
+    font-size: 2.8rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.profile-info h2 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-top: 5px;
+}
+
+.profile-info .quote {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 5px 0 15px 0;
+}
+
+/* BOTONES ESTILO BORDE DORADO */
+.btn-border {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 20px;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(212,175,55,0.1) 0%, transparent 100%);
+    transition: all 0.3s;
+}
+
+.btn-border:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+}
+
+/* ACCIONES SUPERIORES Y REDES SOCIALES */
+.top-actions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+/* REDES SOCIALES */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons i {
+    color: var(--gold); /* El color que ya tienes definido */
+    font-size: 1.5rem;   /* Ajusta el tamaño a tu gusto */
+    transition: all 0.2s ease;
+}
+
+.social-icons i:hover {
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.social-icons .icon {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icons .icon:hover {
+    transform: translateY(-3px); /* Pequeño salto al pasar el ratón */
+    color: #fff;
+}
+
+/* CONTENEDOR DE BOTONES (Línea inferior) */
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.action-text {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* INTERRUPTOR MODO LECTURA (Forma de píldora) */
+.mode-toggle {
+    display: flex;
+    align-items: center;
+    background: var(--bg-dark); /* Fondo más oscuro para el contraste */
+    border: 1px solid var(--panel-border);
+    border-radius: 20px; /* Esto crea la forma de píldora */
+    padding: 4px;
+    gap: 4px;
+    cursor: pointer;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+}
+
+.mode-toggle .sun, 
+.mode-toggle .moon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Estado activo (Sol) */
+.mode-toggle .sun.active {
+    color: var(--gold);
+    background: rgba(212, 175, 55, 0.15); /* Círculo de fondo para el icono activo */
+}
+
+/* Estado inactivo (Luna) */
+.mode-toggle .moon {
+    color: var(--text-secondary);
+}
+
+/* BOTONES DE CAMPANA Y MENÚ */
+.action-btn {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    width: 36px;  /* Ancho y alto fijos para que sean cuadrados perfectos */
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.action-btn i, 
+.action-btn svg {
+    color: var(--text-primary) !important;
+    fill: currentColor !important;
+}
+
+.action-btn:hover {
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.05); /* Brillo sutil al pasar el ratón */
+}
+
+/* SISTEMA DE GRID (MAIN) */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* PANELES COMUNES */
+.panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+/* Esquinas decorativas */
+.panel::before, .panel::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--panel-border);
+}
+.panel::before { top: 4px; left: 4px; border-right: none; border-bottom: none; }
+.panel::after { bottom: 4px; right: 4px; border-left: none; border-top: none; }
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 10px;
+}
+
+.panel-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.panel-icons {
+    display: flex;
+    gap: 10px;
+    color: var(--gold);
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+/* TARJETA: BIBLIOTECA */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.book img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+}
+
+/* TARJETA: TALLER */
+.progress-section { margin-bottom: 25px; }
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.progress-bar-container {
+    height: 12px;
+    background: #000;
+    border: 1px solid var(--panel-border);
+    position: relative;
+    clip-path: polygon(2% 0, 98% 0, 100% 50%, 98% 100%, 2% 100%, 0 50%); /* Bordes angulados */
+}
+
+.progress-fill {
+    height: 100%;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.blue-fill {
+    background: linear-gradient(90deg, #0284c7, var(--blue-neon));
+    color: var(--blue-neon);
+}
+
+.gold-fill {
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+    color: var(--gold);
+}
+
+/* TARJETA: CRÓNICAS */
+.chronicles-list { list-style: none; }
+
+.chronicles-list li {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+}
+
+.date-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 80px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.title {
+    flex-grow: 1;
+    padding-left: 15px;
+    font-size: 0.95rem;
+}
+
+.arrow { color: var(--gold); font-size: 1.5rem; }
+
+/* TARJETA: EMPORIO */
+.emporium-content {
+    display: flex;
+    gap: 20px;
+}
+
+.calendar-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-right: 1px solid var(--panel-border);
+    padding-right: 15px;
+}
+
+.calendar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.calendar-item span {
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+.store-highlights { flex: 2; }
+
+.store-title {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.store-item {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--panel-border);
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.store-item img {
+    width: 100%;
+    height: 50px;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+.store-item h4 {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.store-item .price {
+    font-size: 0.8rem;
+    color: var(--gold);
+}
+
+/* =========================================
+   NUEVO BANNER: SOPORTE DEL GREMIO
+   ========================================= */
+.support-panel {
+    grid-column: 1 / -1; /* Ocupa todo el ancho del grid */
+    background: linear-gradient(135deg, #111d2e 0%, #07101a 100%);
+    border: 2px solid var(--gold-dim);
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 15px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Título superpuesto al borde */
+.support-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-dark);
+    padding: 0 20px;
+    letter-spacing: 2px;
+}
+
+.support-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.support-image img {
+    width: 200px;
+    border-radius: 10px;
+    /* Efecto de resplandor sutil para simular la imagen original */
+    filter: drop-shadow(0 0 15px rgba(80, 200, 120, 0.2)); 
+}
+
+.support-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.support-question {
+    color: #4ade80; /* Tono verdoso de la imagen */
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.support-statement {
+    font-size: 2rem;
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+}
+
+.btn-coffee {
+    font-size: 1.1rem;
+    padding: 10px 30px;
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid var(--gold);
+}
+
+/* =========================================
+   MEDIA QUERIES (DISEÑO RESPONSIVE)
+   ========================================= */
+
+@media (max-width: 1024px) {
+    .profile-info h1 { font-size: 2.2rem; }
+    .books-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .store-grid { grid-template-columns: repeat(2, 1fr); }
+    .support-content { flex-direction: column; gap: 20px; }
+    .support-title { font-size: 1.2rem; width: 90%; }
+    .support-statement { font-size: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+    .grid-layout { grid-template-columns: 1fr; }
+    
+    .main-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .profile-section { flex-direction: column; }
+    .top-actions-container { width: 100%; align-items: center; }
+
+    .emporium-content { flex-direction: column; }
+    .calendar-list {
+        border-right: none;
+        border-bottom: 1px solid var(--panel-border);
+        padding-right: 0;
+        padding-bottom: 15px;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    .store-grid { grid-template-columns: repeat(3, 1fr); }
+    
+    .support-panel { padding: 30px 15px; margin-top: 30px; }
+    .support-title { font-size: 1rem; top: -12px; }
+    .support-statement { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+    .books-grid { grid-template-columns: 1fr 1fr; }
+    .calendar-list { flex-direction: column; align-items: center; }
+    .store-grid { grid-template-columns: 1fr; }
+}
