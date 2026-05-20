@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilustraciones | JJ Naranjo</title>
+    <link rel="stylesheet" href="../css/ilustraciones.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+    <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
+
+    <header class="main-header">
+        <div class="logo">
+            <h1>JJ NARANJO</h1>
+            <small>ESCRITOR DE FANTASÍA</small>
+        </div>
+        
+        <label for="mobile-menu-toggle" class="hamburger-icon">
+            <i class="ri-menu-line"></i>
+        </label>
+
+        <nav class="top-nav">
+            <ul>
+                <li><a href="../index.html">INICIO</a></li>
+                <li><a href="#">LIBROS</a></li>
+                <li><a href="#">PODCAST</a></li>
+                <li><a href="#" class="active">ILUSTRACIONES</a></li>
+                <li><a href="#">ENTREVISTAS</a></li>
+                <li><a href="#">CONÓCEME</a></li>
+                <li><a href="#">CONTACTO</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-socials">
+            <a href="#"><i class="ri-instagram-line"></i></a>
+            <a href="#"><i class="ri-spotify-line"></i></a>
+            <a href="#"><i class="ri-youtube-line"></i></a>
+            <a href="#"><i class="ri-mail-line"></i></a>
+        </div>
+    </header>
+
+    <div class="hero-bg"></div>
+
+    <main class="illustrations-container">
+        
+        <section class="section-hero">
+            <h2>ILUSTRACIONES</h2>
+            <p>Historias que también se cuentan con imágenes.</p>
+            <p class="subtitle">Aquí encontrarás una colección de ilustraciones inspiradas en mis libros, personajes, mundos y momentos que cobran vida más allá de las palabras.</p>
+        </section>
+
+        <input type="radio" name="gallery-filter" id="filter-all" checked>
+        <input type="radio" name="gallery-filter" id="filter-personajes">
+        <input type="radio" name="gallery-filter" id="filter-escenas">
+        <input type="radio" name="gallery-filter" id="filter-criaturas">
+        <input type="radio" name="gallery-filter" id="filter-lugares">
+        <input type="radio" name="gallery-filter" id="filter-objetos">
+
+        <div class="filter-controls">
+            <label for="filter-all" class="btn-filter"><i class="ri-add-line"></i> TODAS</label>
+            <label for="filter-personajes" class="btn-filter"><i class="ri-user-line"></i> PERSONAJES</label>
+            <label for="filter-escenas" class="btn-filter"><i class="ri-landscape-line"></i> ESCENAS</label>
+            <label for="filter-criaturas" class="btn-filter"><i class="ri-bear-smile-line"></i> CRIATURAS</label>
+            <label for="filter-lugares" class="btn-filter"><i class="ri-building-4-line"></i> LUGARES</label>
+            <label for="filter-objetos" class="btn-filter"><i class="ri-sword-line"></i> OBJETOS</label>
+        </div>
+
+        <div class="gallery-grid">
+            
+            <article class="gallery-card escena">
+                <div class="img-wrapper">
+                    <img src="https://via.placeholder.com/400x500/111/c0a062?text=El+Eclipse" alt="El Eclipse">
+                </div>
+                <div class="card-info">
+                    <h3>EL ECLIPSE</h3>
+                    <p>El día que el sol dejó de brillar y los susurros despertaron.</p>
+                    <span class="tag"><i class="ri-landscape-line"></i> ESCENA</span>
+                </div>
+            </article>
+
+            <article class="gallery-card personajes">
+                <div class="img-wrapper">
+                    <img src="https://via.placeholder.com/400x500/111/c0a062?text=Kael+y+Lyra" alt="Kael y Lyra">
+                </div>
+                <div class="card-info">
+                    <h3>KAEL Y LYRA</h3>
+                    <p>Dos almas unidas por el destino y la oscuridad.</p>
+                    <span class="tag"><i class="ri-user-line"></i> PERSONAJES</span>
+                </div>
+            </article>
+
+            <article class="gallery-card criaturas">
+                <div class="img-wrapper">
+                    <img src="https://via.placeholder.com/400x500/111/c0a062?text=Vorakan" alt="Vorakan">
+                </div>
+                <div class="card-info">
+                    <h3>VORAKAN</h3>
+                    <p>Antiguo. Terrible. Real. El último de su especie.</p>
+                    <span class="tag"><i class="ri-bear-smile-line"></i> CRIATURA</span>
+                </div>
+            </article>
+
+            <article class="gallery-card lugares">
+                <div class="img-wrapper">
+                    <img src="https://via.placeholder.com/400x500/111/c0a062?text=Torre+de+Umbra" alt="Torre de Umbra">
+                </div>
+                <div class="card-info">
+                    <h3>TORRE DE UMBRA</h3>
+                    <p>Vigila el horizonte desde tiempos inmemoriales.</p>
+                    <span class="tag"><i class="ri-building-4-line"></i> LUGAR</span>
+                </div>
+            </article>
+
+            <article class="gallery-card objetos">
+                <div class="img-wrapper">
+                    <img src="https://via.placeholder.com/400x500/111/c0a062?text=Espada+de+Luz" alt="Espada de Luz">
+                </div>
+                <div class="card-info">
+                    <h3>ESPADA DE LUZ</h3>
+                    <p>Forjada con fragmentos de estrellas caídas.</p>
+                    <span class="tag"><i class="ri-sword-line"></i> OBJETO</span>
+                </div>
+            </article>
+            
+            </div>
+
+        <div class="pagination-info">
+            <div class="decorative-line"></div>
+            <span>MOSTRANDO LA GALERÍA</span>
+            <div class="decorative-line"></div>
+        </div>
+
+    </main>
+
+    <section class="newsletter-section">
+        <div class="newsletter-box">
+            <div class="newsletter-text">
+                <i class="ri-quill-pen-line"></i>
+                <div>
+                    <h3>¿TE GUSTAN MIS ILUSTRACIONES?</h3>
+                    <p>Suscríbete a mi newsletter y recibe contenido exclusivo, novedades, bocetos inéditos y mucho más.</p>
+                </div>
+            </div>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Tu correo electrónico" required>
+                <button type="submit">SUSCRIBIRME</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <blockquote class="footer-quote">
+            "Las historias nos eligen. Nosotros solo tenemos el valor de contarlas."
+            <div class="diamond">♦</div>
+        </blockquote>
+        
+        <div class="social-links-footer">
+            <p>SÍGUEME EN MIS REDES</p>
+            <div class="icons">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+                <a href="#"><i class="ri-tiktok-fill"></i></a>
+                <a href="#"><i class="ri-youtube-line"></i></a>
+                <a href="#"><i class="ri-spotify-line"></i></a>
+                <a href="#"><i class="ri-twitter-x-line"></i></a>
+                <a href="#"><i class="ri-mail-line"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 JJ NARANJO · TODOS LOS DERECHOS RESERVADOS</p>
+            <div class="legal-links">
+                <a href="#">AVISO LEGAL</a>
+                <a href="#">POLÍTICA DE PRIVACIDAD</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

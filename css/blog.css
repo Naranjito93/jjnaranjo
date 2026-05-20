@@ -1,0 +1,429 @@
+/* VARIABLES ESTÉTICA ARCANA Y PERGAMINO */
+:root {
+    --bg-dark: #120e14;
+    --parchment-light: #e6cead;
+    --parchment-mid: #d4b88f;
+    --parchment-dark: #b89768;
+    --wood-light: #8b5a2b;
+    --wood-dark: #3e2004;
+    --ink-dark: #2c1e16;
+    --ink-light: #523b2b;
+    --magic-glow: #6fa8dc;
+    --magic-glow-intense: #a1c9f1;
+    --wax-red: #8b0000;
+    --wax-red-dark: #4a0000;
+    
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Cormorant Garamond', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Fondo oscuro para simular el ambiente de la biblioteca mágica */
+    background-color: var(--bg-dark);
+    background-image: radial-gradient(circle at center, #1e1724 0%, var(--bg-dark) 100%);
+    color: var(--ink-dark);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    padding: 20px 0;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+/* NAVEGACIÓN SUPERIOR (Pergamino horizontal) */
+.main-nav-scroll {
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    background: linear-gradient(to bottom, var(--parchment-light), var(--parchment-mid), var(--parchment-dark));
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.6), inset 0 0 20px rgba(184, 151, 104, 0.5);
+    z-index: 10;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: var(--ink-dark);
+}
+
+.logo i {
+    font-size: 1.8rem;
+    color: var(--magic-glow);
+    text-shadow: 0 0 10px var(--magic-glow-intense);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--ink-dark);
+    transition: all 0.3s;
+}
+
+.nav-links a.active {
+    color: var(--magic-glow-intense);
+    text-shadow: 0 0 10px var(--magic-glow), 0 0 20px var(--magic-glow);
+}
+
+.nav-links a:hover {
+    color: var(--magic-glow);
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--ink-dark);
+}
+
+/* Rodillos laterales del menú */
+.nav-roller {
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    width: 20px;
+    background: linear-gradient(to right, var(--wood-dark), var(--wood-light), var(--wood-dark));
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+.nav-roller.left { left: -10px; }
+.nav-roller.right { right: -10px; }
+
+/* GRAN PERGAMINO CENTRAL */
+.main-parchment {
+    max-width: 1300px;
+    margin: 0 auto;
+    background: url('https://www.transparenttextures.com/patterns/aged-paper.png'), 
+                radial-gradient(ellipse at center, var(--parchment-light) 0%, var(--parchment-mid) 80%, var(--parchment-dark) 100%);
+    border-radius: 5px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 50px rgba(139, 90, 43, 0.4);
+    padding: 50px;
+    position: relative;
+}
+
+.parchment-header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid rgba(44, 30, 22, 0.2);
+    padding-bottom: 20px;
+}
+
+.parchment-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--ink-dark);
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+.parchment-header p {
+    font-size: 1.3rem;
+    color: var(--ink-light);
+    font-style: italic;
+}
+
+/* LAYOUT PRINCIPAL (Grid + Sidebar) */
+.arcane-layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* CUADRÍCULA DE ARTÍCULOS */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* TARJETAS ESTILO PAPIRO */
+.scroll-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; /* Espacio para el sello */
+}
+
+.card-content {
+    background: linear-gradient(to bottom, #ebd9be, #e0c8a3);
+    padding: 15px;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    box-shadow: inset 0 0 15px rgba(139, 90, 43, 0.2);
+    min-height: 380px;
+}
+
+.roller {
+    height: 16px;
+    background: linear-gradient(to bottom, var(--wood-dark), var(--wood-light), var(--wood-dark));
+    border-radius: 8px;
+    margin: 0 -8px; /* Sobresale un poco de la tarjeta */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.6);
+    position: relative;
+    z-index: 2;
+}
+
+.card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+    filter: sepia(0.2) contrast(1.1); /* Toque avejentado */
+}
+
+.card-text h3 {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--ink-light);
+    margin-bottom: 10px;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.category-tag {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--ink-dark);
+    margin-bottom: 10px;
+}
+
+.card-text p {
+    font-size: 1.05rem;
+    line-height: 1.4;
+}
+
+/* SELLO DE CERA */
+.wax-seal {
+    width: 45px;
+    height: 45px;
+    background: radial-gradient(circle at 30% 30%, #ff3333, var(--wax-red), var(--wax-red-dark));
+    border-radius: 50%;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5), inset 0 0 5px rgba(0,0,0,0.8);
+    border: 2px solid rgba(74, 0, 0, 0.8);
+}
+
+.wax-seal::after {
+    /* Símbolo dentro del sello */
+    content: '✵';
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wax-seal.large {
+    width: 60px;
+    height: 60px;
+    bottom: -30px;
+}
+.wax-seal.large::after { font-size: 2rem; }
+
+/* BARRA LATERAL (GRIMORIO) */
+.sidebar-scroll {
+    position: relative;
+}
+
+.sidebar-content {
+    background: linear-gradient(to bottom, #ebd9be, #d4b88f);
+    padding: 25px;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    box-shadow: inset 0 0 20px rgba(139, 90, 43, 0.3);
+}
+
+.widget {
+    margin-bottom: 35px;
+}
+
+.widget-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--ink-light);
+    padding-bottom: 5px;
+}
+
+/* Buscador */
+.search-box {
+    display: flex;
+    background: rgba(255,255,255,0.3);
+    border: 1px solid var(--ink-light);
+    border-radius: 2px;
+    padding: 8px 12px;
+    align-items: center;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--ink-dark);
+    outline: none;
+}
+
+.search-box i {
+    color: var(--ink-light);
+    font-size: 1.2rem;
+}
+
+/* Categorías */
+.category-list {
+    list-style: none;
+}
+
+.category-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(44, 30, 22, 0.3);
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.category-list li:hover {
+    font-weight: 600;
+    color: #000;
+}
+
+/* Populares */
+.popular-post {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.popular-post img {
+    width: 60px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.popular-post span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Suscripción */
+.subscribe-widget {
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.btn-arcane {
+    background: transparent;
+    border: 1px solid var(--ink-dark);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    color: var(--ink-dark);
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.btn-arcane:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    margin-top: 20px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .main-parchment {
+        padding: 40px 20px;
+        margin: 0 10px;
+    }
+    .arcane-layout {
+        grid-template-columns: 2fr 1fr; /* Ajusta la proporción en tabletas */
+    }
+}
+
+@media (max-width: 850px) {
+    .arcane-layout {
+        grid-template-columns: 1fr; /* El sidebar cae abajo */
+    }
+    
+    .nav-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .main-nav-scroll {
+        margin: 0 15px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .articles-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+    
+    .parchment-header h1 {
+        font-size: 1.8rem;
+    }
+}

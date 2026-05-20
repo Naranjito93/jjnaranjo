@@ -1,0 +1,491 @@
+/* VARIABLES GLOBALES */
+:root {
+    --bg-dark: #07080a;
+    --bg-card: #121418;
+    --gold: #b39054;
+    --gold-hover: #d4b072;
+    --gold-dim: rgba(179, 144, 84, 0.3);
+    --text-main: #e0dcd3;
+    --text-muted: #88847d;
+    --font-heading: 'Cinzel', serif;
+    --font-ui: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-ui);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+/* CABECERA Y NAVEGACIÓN */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    text-align: left;
+}
+
+.logo h1 {
+    font-family: var(--font-heading);
+    color: var(--gold);
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.logo small {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 4px;
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.top-nav a {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.top-nav a:hover, .top-nav a.active {
+    color: var(--gold);
+}
+
+.nav-socials {
+    display: flex;
+    gap: 15px;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.nav-socials a:hover {
+    color: var(--gold);
+}
+
+/* MENÚ MÓVIL (Checkbox hack) */
+.mobile-menu-toggle, .hamburger-icon {
+    display: none;
+}
+
+/* HERO SECTION Y FONDO */
+.hero-bg {
+    height: 600px;
+    background: linear-gradient(to bottom, transparent, var(--bg-dark)),
+                url('https://via.placeholder.com/1920x800/0a0a0a/333?text=Castillo+Nocturno') center top/cover no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.illustrations-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 180px 40px 60px;
+}
+
+.section-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-hero h2 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.section-hero p {
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-style: italic;
+    font-family: var(--font-heading);
+}
+
+.section-hero .subtitle {
+    font-family: var(--font-ui);
+    font-style: normal;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    max-width: 600px;
+    margin: 15px auto 0;
+}
+
+/* CONTROLES DE FILTRO (CSS Puro) */
+input[name="gallery-filter"] {
+    display: none;
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.btn-filter {
+    padding: 8px 20px;
+    border: 1px solid var(--gold-dim);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 2px;
+}
+
+.btn-filter:hover {
+    border-color: var(--gold);
+    color: var(--text-main);
+}
+
+/* Lógica de filtrado CSS: Cuando un radio está chequeado, ilumina su botón correspondiente */
+#filter-all:checked ~ .filter-controls label[for="filter-all"],
+#filter-personajes:checked ~ .filter-controls label[for="filter-personajes"],
+#filter-escenas:checked ~ .filter-controls label[for="filter-escenas"],
+#filter-criaturas:checked ~ .filter-controls label[for="filter-criaturas"],
+#filter-lugares:checked ~ .filter-controls label[for="filter-lugares"],
+#filter-objetos:checked ~ .filter-controls label[for="filter-objetos"] {
+    background: var(--gold-dim);
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* Lógica de filtrado CSS: Ocultar tarjetas que no coinciden con el filtro */
+#filter-personajes:checked ~ .gallery-grid .gallery-card:not(.personajes),
+#filter-escenas:checked ~ .gallery-grid .gallery-card:not(.escena),
+#filter-criaturas:checked ~ .gallery-grid .gallery-card:not(.criaturas),
+#filter-lugares:checked ~ .gallery-grid .gallery-card:not(.lugares),
+#filter-objetos:checked ~ .gallery-grid .gallery-card:not(.objetos) {
+    display: none;
+}
+
+/* GRID DE GALERÍA */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.gallery-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8), 0 0 15px rgba(179, 144, 84, 0.1);
+    border-color: var(--gold-dim);
+}
+
+.img-wrapper {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: brightness(0.85) contrast(1.1);
+}
+
+.gallery-card:hover .img-wrapper img {
+    transform: scale(1.05);
+    filter: brightness(1);
+}
+
+.card-info {
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.card-info h3 {
+    font-family: var(--font-heading);
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.card-info p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 15px;
+    height: 40px; /* Mantiene la altura consistente */
+}
+
+.card-info .tag {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* PAGINACIÓN / SEPARADOR */
+.pagination-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-bottom: 60px;
+}
+
+.decorative-line {
+    height: 1px;
+    flex: 1;
+    max-width: 200px;
+    background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+}
+
+/* NEWSLETTER */
+.newsletter-section {
+    padding: 0 40px 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.newsletter-box {
+    border: 1px solid var(--gold-dim);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background: radial-gradient(circle at center, rgba(179, 144, 84, 0.05), transparent);
+}
+
+.newsletter-text {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+.newsletter-text i {
+    font-size: 2.5rem;
+    color: var(--gold);
+}
+
+.newsletter-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.newsletter-text p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+.newsletter-form input {
+    flex: 1;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 12px 15px;
+    color: var(--text-main);
+    font-family: var(--font-ui);
+    outline: none;
+}
+
+.newsletter-form input:focus {
+    border-color: var(--gold);
+}
+
+.newsletter-form button {
+    background: var(--gold-dim);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0 25px;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.newsletter-form button:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+}
+
+/* FOOTER */
+.main-footer {
+    text-align: center;
+    padding: 60px 40px 30px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-quote {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 40px;
+}
+
+.diamond {
+    color: var(--gold-dim);
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.social-links-footer p {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.social-links-footer .icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    margin-bottom: 50px;
+}
+
+.social-links-footer .icons a:hover {
+    color: var(--gold);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 20px;
+}
+
+.legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .newsletter-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .newsletter-text {
+        flex-direction: column;
+    }
+    
+    .newsletter-form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Lógica del menú hamburguesa CSS puro */
+    .hamburger-icon {
+        display: block;
+        font-size: 1.8rem;
+        color: var(--gold);
+        cursor: pointer;
+    }
+
+    .top-nav {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-dark);
+        border-bottom: 1px solid var(--gold-dim);
+        padding: 20px 0;
+    }
+
+    .top-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #mobile-menu-toggle:checked ~ .top-nav {
+        display: block;
+    }
+
+    .nav-socials {
+        display: none;
+    }
+
+    .section-hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form button {
+        padding: 15px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
