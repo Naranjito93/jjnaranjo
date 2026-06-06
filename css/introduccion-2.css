@@ -1,25 +1,28 @@
 /* ==========================================================================
-   ESTILO GLOBAL: URBAN FANTASY / NEON CYBER-YOKAI (Inspirado en image_f3412c.jpg)
+   VARIABLES GLOBALES: URBAN FANTASY / CYBER-YOKAI (Estilo image_f1d10a.jpg)
    ========================================================================== */
-
 :root {
-    --bg-dark-void: #090e17;
-    --bg-panel-dark: rgba(14, 22, 35, 0.85);
-    --bg-dossier-light: #e6ecf2; /* Tono gris claro metalizado para lectura limpia */
-    --neon-cyan: #00e5ff;
-    --neon-cyan-dim: #008ba3;
-    --neon-glow: rgba(0, 229, 255, 0.35);
-    --text-light: #f0f5f7;
-    --text-dark: #121b29;
-    --text-muted: #8fa0b5;
+    --bg-dark-void: #0b111a;      /* Fondo azul oscuro/asfalto de la ciudad */
+    --bg-panel-dark: rgba(12, 23, 36, 0.85); /* Paneles oscuros integrados */
+    --bg-dossier-light: #e1e7ee;  /* Gris claro metalizado de la placa central */
     
-    /* Fuentes del HTML */
-    --font-header: 'Cinzel', serif;
+    /* Neones característicos de la imagen */
+    --neon-cyan: #00f0ff;         /* Cian brillante eléctrico */
+    --neon-cyan-dim: #009cb3;     /* Cian apagado para bordes */
+    --neon-glow: rgba(0, 240, 255, 0.3);
+    
+    /* Textos */
+    --text-light: #f0f6fc;        /* Blanco azulado para zonas oscuras */
+    --text-dark: #101721;         /* Texto oscuro para la placa de lectura */
+    --text-muted: #708499;        /* Gris de soporte */
+    
+    /* Tipografías */
+    --font-heading: 'Cinzel', serif;
     --font-body: 'Cormorant Garamond', serif;
     --font-ui: 'Montserrat', sans-serif;
 }
 
-/* Reset de estilos */
+/* Reset y configuraciones base */
 * {
     margin: 0;
     padding: 0;
@@ -28,122 +31,106 @@
 
 body {
     background-color: var(--bg-dark-void);
-    /* Textura de fondo con rejilla industrial y gradientes de neón cruzados */
+    /* Textura de fondo que simula los reflejos de neón y suelo texturizado */
     background-image: 
-        linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px),
-        radial-gradient(circle at 10% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(0, 139, 163, 0.1) 0%, transparent 50%);
-    background-size: 30px 30px, 30px 30px, auto, auto;
+        linear-gradient(rgba(0, 240, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.02) 1px, transparent 1px),
+        radial-gradient(circle at 0% 20%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 100% 80%, rgba(0, 156, 179, 0.12) 0%, transparent 60%);
+    background-size: 40px 40px, 40px 40px, auto, auto;
     color: var(--text-light);
     font-family: var(--font-ui);
     overflow-x: hidden;
 }
 
 /* ==========================================================================
-   HEADER / BARRA DE NAVEGACIÓN SUPERIOR
+   HEADER / MENU DE NAVEGACIÓN SUPERIOR
    ========================================================================== */
-
 .main-header {
-    background: rgba(10, 16, 26, 0.95);
-    border-bottom: 2px solid var(--neon-cyan-dim);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
-    position: sticky;
+    padding: 20px 40px;
+    background: rgba(11, 17, 26, 0.95);
+    border-bottom: 2px solid var(--neon-cyan-dim);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5), 0 0 15px var(--neon-glow);
+    position: absolute;
     top: 0;
+    width: 100%;
     z-index: 100;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px var(--neon-glow);
 }
 
 .logo h1 {
-    font-family: var(--font-header);
-    font-size: 1.3rem;
-    letter-spacing: 2px;
+    font-family: var(--font-heading);
     color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: 2px;
 }
 
 .logo small {
-    font-size: 0.65rem;
-    letter-spacing: 3px;
+    font-family: var(--font-ui);
+    font-size: 0.6rem;
     color: var(--neon-cyan);
+    letter-spacing: 3px;
     display: block;
-    margin-top: 2px;
+    margin-top: 4px;
+    text-shadow: 0 0 5px var(--neon-glow);
 }
 
 .top-nav ul {
-    display: flex;
     list-style: none;
+    display: flex;
     gap: 30px;
 }
 
 .top-nav a {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
     color: var(--text-light);
     text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 1px;
     transition: all 0.3s ease;
-    padding: 5px 0;
-    position: relative;
 }
 
 .top-nav a:hover, .top-nav a.active {
     color: var(--neon-cyan);
-    text-shadow: 0 0 8px var(--neon-glow);
+    text-shadow: 0 0 8px var(--neon-cyan);
 }
 
-/* Subrayado de neón activo */
-.top-nav a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--neon-cyan);
-    box-shadow: 0 0 8px var(--neon-cyan);
-}
-
-.menu-toggle {
+/* Ocultar elementos para el menú responsive sin JS */
+.nav-toggle, .menu-toggle-btn {
     display: none;
-    background: transparent;
-    border: none;
-    color: var(--neon-cyan);
-    font-size: 1.5rem;
-    cursor: pointer;
 }
 
 /* ==========================================================================
-   DISEÑO INTERIOR (LAYOUT DE DOS COLUMNAS)
+   ESTRUCTURA DE DOS COLUMNAS (ASIDE + MAIN)
    ========================================================================== */
-
 .reading-layout {
-    max-width: 1400px;
-    margin: 40px auto;
     display: grid;
     grid-template-columns: 320px 1fr;
-    gap: 40px;
-    padding: 0 20px;
+    min-height: 100vh;
+    padding-top: 100px;
 }
 
 /* ==========================================================================
-   SIDEBAR (MENÚ E INFORMACIÓN LATERAL)
+   BARRA LATERAL (SIDEBAR)
    ========================================================================== */
-
 .sidebar {
+    background-color: rgba(9, 14, 22, 0.9);
+    border-right: 1px solid rgba(0, 240, 255, 0.2);
+    padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 35px;
 }
 
 .back-link {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
     color: var(--neon-cyan);
     text-decoration: none;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 1px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -151,54 +138,51 @@ body {
 }
 
 .back-link:hover {
-    transform: translateX(-5px);
+    transform: translateX(-3px);
 }
 
 .book-cover-container {
-    background: var(--bg-panel-dark);
-    border: 1px solid rgba(0, 229, 255, 0.2);
-    border-radius: 8px;
-    padding: 20px;
     text-align: center;
-    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
 }
 
 .book-cover {
-    width: 100%;
-    max-width: 200px;
+    width: 170px;
     height: auto;
-    border-radius: 4px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.7), 0 0 15px rgba(0, 229, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 240, 255, 0.15);
     margin-bottom: 15px;
+    border: 1px solid rgba(0, 240, 255, 0.3);
 }
 
 .author-name {
-    font-family: var(--font-header);
-    font-size: 0.9rem;
-    letter-spacing: 1.5px;
-    color: var(--neon-cyan);
-}
-
-/* Separadores Rúnicos/Cyber */
-.sidebar-divider {
-    text-align: center;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     letter-spacing: 2px;
     color: var(--text-muted);
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
 }
 
-.diamond-divider, .diamond-divider-large {
+.sidebar-divider {
+    text-align: center;
+    font-family: var(--font-heading);
+    color: var(--neon-cyan);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.sidebar-divider span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Divisores cibernéticos de neón */
+.diamond-divider, .diamond-divider-small, .diamond-divider-large {
     width: 100%;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
-    margin: 10px 0;
+    margin: 15px 0;
     position: relative;
 }
 
-.diamond-divider::after, .diamond-divider-large::after {
+.diamond-divider::after, .diamond-divider-small::after, .diamond-divider-large::after {
     content: '◆';
     position: absolute;
     left: 50%;
@@ -206,40 +190,46 @@ body {
     transform: translate(-50%, -50%);
     color: var(--neon-cyan);
     font-size: 0.6rem;
+    background-color: #0b111a;
+    padding: 0 6px;
     text-shadow: 0 0 5px var(--neon-cyan);
 }
 
-/* Índice de capítulos táctico */
-.table-of-contents {
-    background: var(--bg-panel-dark);
-    border: 1px solid rgba(0, 229, 255, 0.15);
-    border-radius: 6px;
-    padding: 15px;
-}
-
+/* Menú de selección de Capítulos */
 .table-of-contents ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
 }
 
 .table-of-contents a {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
     color: var(--text-light);
     text-decoration: none;
-    font-size: 0.8rem;
-    letter-spacing: 0.5px;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
-.chapter-subtitle {
+.table-of-contents .chapter-subtitle {
     display: block;
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     padding-left: 15px;
     margin-top: 2px;
+}
+
+/* Foco de capítulo activo con estilo cápsula de neón de la imagen */
+.table-of-contents li.active {
+    background: rgba(0, 240, 255, 0.05);
+    border: 1px solid var(--neon-cyan-dim);
+    border-radius: 4px;
+    padding: 10px;
+    margin-left: -5px;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
 }
 
 .table-of-contents li.active a {
@@ -247,44 +237,41 @@ body {
     font-weight: 600;
 }
 
-.table-of-contents li.active .chapter-subtitle {
-    color: var(--neon-cyan-dim);
-}
-
 .table-of-contents li.dots {
     color: var(--text-muted);
     padding-left: 15px;
+    letter-spacing: 3px;
 }
 
-/* Caja Promocional */
+/* Caja de Regalo/Promoción Lateral estilo terminal */
 .promo-box {
-    background: linear-gradient(135deg, rgba(14, 22, 35, 0.9) 0%, rgba(5, 36, 51, 0.9) 100%);
     border: 2px dashed var(--neon-cyan-dim);
-    border-radius: 8px;
+    background-color: var(--bg-panel-dark);
     padding: 25px 20px;
     text-align: center;
-    position: relative;
+    border-radius: 6px;
 }
 
 .promo-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--neon-cyan);
     margin-bottom: 12px;
-    text-shadow: 0 0 10px var(--neon-glow);
 }
 
 .promo-box h3 {
-    font-family: var(--font-header);
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
     margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .promo-box p {
+    font-family: var(--font-ui);
     font-size: 0.75rem;
     color: var(--text-muted);
-    line-height: 1.4;
-    margin-bottom: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
 .btn-sidebar {
@@ -293,13 +280,14 @@ body {
     border: 2px solid var(--neon-cyan);
     color: var(--neon-cyan);
     text-decoration: none;
-    font-size: 0.75rem;
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
     font-weight: 600;
     padding: 10px;
-    border-radius: 40px; /* Botones ovalados idénticos a los de la imagen */
-    letter-spacing: 2px;
+    border-radius: 30px; /* Botones ovalados tipo cápsula policiaca */
+    letter-spacing: 1px;
     box-shadow: 0 0 8px var(--neon-glow);
-    transition: all 0.3s ease;
+    transition: all 0.3s;
 }
 
 .btn-sidebar:hover {
@@ -309,332 +297,320 @@ body {
 }
 
 /* ==========================================================================
-   CONTENIDO PRINCIPAL DE LECTURA (INFORME TÁCTICO)
+   ÁREA CENTRAL DE TEXTO (INFORME TÁCTICO)
    ========================================================================== */
-
 .reading-content {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    align-items: center;
+    padding: 0 40px;
 }
 
-/* Banner de Cabecera del Capítulo */
+/* Cabecera integrada */
 .hero-chapter {
-    background: radial-gradient(circle at center, rgba(10, 30, 50, 0.8), rgba(5, 10, 18, 0.95));
-    border: 1px solid rgba(0, 229, 255, 0.3);
-    border-radius: 8px;
-    padding: 60px 20px;
     text-align: center;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* Adornos lineales de neón diagonales simulando la imagen */
-.hero-chapter::before {
-    content: '';
-    position: absolute;
-    top: -2px; left: 10%; width: 80%; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+    margin: 50px 0;
 }
 
 .saga-title {
-    font-size: 0.8rem;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
     color: var(--neon-cyan);
     letter-spacing: 4px;
-    font-weight: 600;
+    text-shadow: 0 0 5px var(--neon-glow);
 }
 
 .book-title {
-    font-family: var(--font-header);
-    font-size: 3rem;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 400;
     color: #ffffff;
-    margin: 15px 0;
-    letter-spacing: 3px;
-    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+    letter-spacing: 6px;
+    margin: 10px 0;
 }
 
 .book-tagline {
-    font-size: 0.85rem;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
     color: var(--text-muted);
-    letter-spacing: 5px;
+    letter-spacing: 4px;
 }
 
-/* El bloque del manuscrito/artículo: emulando el panel central metálico gris */
+/* Placa del informe: emula la estructura metálica clara con remaches de la imagen */
 .chapter-article {
+    max-width: 760px;
+    width: 100%;
     background-color: var(--bg-dossier-light);
-    border: 4px solid #b0bfd0;
-    border-radius: 6px;
-    padding: 50px 45px;
+    border: 4px solid #adb9c7;
+    border-radius: 8px;
+    padding: 50px 40px;
     color: var(--text-dark);
-    box-shadow: 
-        0 15px 40px rgba(0,0,0,0.6), 
-        inset 0 0 0 1px rgba(255,255,255,0.8),
-        inset 0 0 25px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,0,0,0.1);
     position: relative;
 }
 
-/* Remaches metálicos en las esquinas */
-.chapter-article::after {
-    content: '•';
+/* Detalle visual de los remaches de metal en las esquinas */
+.chapter-article::before {
+    content: '•   •';
     position: absolute;
-    top: 5px; left: 10px;
-    font-size: 1.2rem; color: #78899c;
-    text-shadow: 23px 0 #78899c, 0 100% #78899c; /* Multi-remaches por sombra */
+    top: 8px; left: 12px;
+    font-size: 1rem; color: #768799;
+    letter-spacing: 690px; /* Envía el segundo remache al extremo derecho */
 }
 
 .chapter-header {
     text-align: center;
     margin-bottom: 40px;
-    border-bottom: 2px dashed rgba(0,0,0,0.15);
+    border-bottom: 2px dashed rgba(0,0,0,0.1);
     padding-bottom: 20px;
 }
 
 .chapter-number {
-    font-size: 0.8rem;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
     color: var(--neon-cyan-dim);
-    letter-spacing: 3px;
     font-weight: 600;
+    letter-spacing: 2px;
 }
 
 .chapter-name {
-    font-family: var(--font-header);
-    font-size: 1.8rem;
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    font-weight: 500;
     color: var(--text-dark);
-    margin-top: 5px;
-    letter-spacing: 1px;
+    margin-top: 6px;
 }
 
-/* Estilos de maquetación del texto literario */
+.diamond-divider-small {
+    display: none; /* Reemplazado por la línea punteada superior */
+}
+
+/* Maquetación del manuscrito impreso dentro de la placa clara */
 .chapter-text {
     font-family: var(--font-body);
-    font-size: 1.25rem;
-    line-height: 1.7;
+    font-size: 1.3rem;
+    color: #1a222d;
     text-align: justify;
 }
 
 .chapter-text p {
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    text-indent: 2.5em; /* Sangría clásica de libro */
 }
 
-/* Letra capital del primer párrafo */
-.first-paragraph::first-letter {
-    font-family: var(--font-header);
-    font-size: 3.5rem;
-    float: left;
-    margin-right: 10px;
-    line-height: 1;
-    color: var(--text-dark);
-    font-weight: bold;
-}
-
-/* Estilos de maquetación del texto literario */
-.chapter-text {
-    font-family: var(--font-body);
-    font-size: 1.25rem;
-    line-height: 1.7;
-    text-align: justify;
-}
-
-/* 1. Aplicamos la sangría a todos los párrafos por defecto */
-.chapter-text p {
-    margin-bottom: 12px; /* Reducido un poco para que luzca más como un libro real */
-    text-indent: 2em;    /* Añade la sangría de dos caracteres hacia dentro */
-}
-
-/* 2. Forzamos a que el primer párrafo empiece completamente a la izquierda */
 .chapter-text p.first-paragraph {
     text-indent: 0;
 }
 
-/* Letra capital del primer párrafo (se mantiene igual) */
+/* Letra Capitular encuadrada como la de image_f1d10a.jpg */
 .first-paragraph::first-letter {
-    font-family: var(--font-header);
-    font-size: 3.5rem;
+    font-family: var(--font-heading);
+    font-size: 3.8rem;
     float: left;
-    margin-right: 10px;
-    line-height: 1;
+    line-height: 0.9;
+    margin-right: 12px;
+    margin-top: 5px;
     color: var(--text-dark);
     font-weight: bold;
+    border: 2px solid #91a2b5;
+    padding: 6px 12px;
+    background-color: rgba(0,0,0,0.03);
 }
 
 .diamond-divider-large {
-    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.2), transparent);
-    margin: 40px 0;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent);
+    margin: 50px 0;
 }
 .diamond-divider-large::after {
-    color: #4a5768;
+    background-color: var(--bg-dossier-light);
+    color: #5c6e80;
     text-shadow: none;
 }
 
-/* Navegación entre capítulos */
+/* Botones de paginación inferiores */
 .chapter-nav {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    margin-bottom: 50px;
+    margin-top: 30px;
 }
 
 .btn-nav {
     background: transparent;
-    border: 2px solid #9fb0c4;
-    color: #4a5768;
+    border: 2px solid #91a2b5;
+    color: #435261;
+    font-family: var(--font-ui);
     text-decoration: none;
-    padding: 12px 25px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    border-radius: 40px;
-    letter-spacing: 1.5px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    letter-spacing: 1px;
     transition: all 0.3s;
 }
 
 .btn-nav:hover:not(.disabled) {
     border-color: var(--text-dark);
     color: var(--text-dark);
-    background: rgba(0,0,0,0.03);
 }
 
 .btn-nav.disabled {
-    opacity: 0.4;
+    opacity: 0.3;
     cursor: not-allowed;
 }
 
 /* ==========================================================================
-   BOTTOM CTA (CAJA DE LLAMADA A LA ACCIÓN INFERIOR)
+   CALL TO ACTION INFERIOR (CÁPSULA CYBER)
    ========================================================================== */
-
 .bottom-cta {
-    background: linear-gradient(135deg, #0e1624 0%, #072a3a 100%);
-    border: 1px solid rgba(0, 229, 255, 0.25);
-    border-radius: 8px;
-    padding: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    border: 2px solid var(--neon-cyan-dim);
+    background: linear-gradient(135deg, #0c1724 0%, #052636 100%);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .cta-content {
-    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .cta-content h3 {
-    font-family: var(--font-header);
-    font-size: 1.1rem;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
     color: #ffffff;
-    letter-spacing: 1.5px;
-    margin-bottom: 8px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
 }
 
 .cta-content p {
-    font-size: 0.85rem;
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
     color: var(--text-muted);
-    margin-bottom: 20px;
-}
-
-.cta-content strong {
-    color: var(--neon-cyan);
+    line-height: 1.5;
+    margin-bottom: 25px;
 }
 
 .btn-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    align-self: flex-start;
     background: transparent;
     border: 2px solid var(--neon-cyan);
     color: var(--neon-cyan);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
     font-weight: 600;
-    padding: 12px 28px;
-    border-radius: 40px;
+    padding: 12px 26px;
+    border-radius: 30px;
     letter-spacing: 1px;
-    box-shadow: 0 0 10px var(--neon-glow);
-    transition: all 0.3s ease;
+    box-shadow: 0 0 8px var(--neon-glow);
+    transition: all 0.3s;
 }
 
 .btn-cta:hover {
     background: var(--neon-cyan);
     color: var(--bg-dark-void);
-    box-shadow: 0 0 20px var(--neon-cyan);
-}
-
-.cta-image {
-    max-width: 140px;
-}
-
-.cta-image img {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.6));
+    box-shadow: 0 0 15px var(--neon-cyan);
 }
 
 /* ==========================================================================
-   FOOTER PRINCIPAL
+   CONTENEDOR DE LA IMAGEN DEL CTA (CON PORTADA INTEGRADA)
    ========================================================================== */
+.cta-image {
+    background-color: #060a12;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Espaciado interno para que la portada no toque los bordes */
+    overflow: hidden;
+}
 
+/* Control total del tamaño de la imagen de la portada */
+.cta-image img {
+    max-width: 100%;
+    max-height: 180px; /* Evita que estire demasiado el contenedor alto */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Mantiene la proporción perfecta sin deformar */
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 240, 255, 0.2);
+    z-index: 2; /* Se coloca por encima del efecto de fondo */
+    position: relative;
+}
+
+
+/* ==========================================================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
 .main-footer {
-    background: #05080f;
-    border-top: 1px solid rgba(0, 229, 255, 0.15);
-    padding: 50px 20px 30px 20px;
+    background-color: #05080f;
+    border-top: 2px solid var(--neon-cyan-dim);
+    padding: 60px 40px 30px 40px;
     margin-top: 60px;
     text-align: center;
 }
 
 .footer-quote {
-    font-family: var(--font-header);
-    font-size: 1.1rem;
-    color: var(--text-light);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: #ffffff;
     max-width: 600px;
-    margin: 0 auto 30px auto;
-    font-style: italic;
+    margin: 0 auto 40px auto;
 }
 
-.social-links {
-    margin-bottom: 40px;
+.footer-quote .diamond-divider-small {
+    display: block;
+    margin-top: 20px;
 }
 
 .follow-text {
-    font-size: 0.7rem;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
     letter-spacing: 2px;
     color: var(--text-muted);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .social-links .icons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
+    margin-bottom: 50px;
 }
 
 .social-links a {
     color: var(--text-light);
     font-size: 1.3rem;
-    transition: color 0.3s, transform 0.3s;
+    transition: all 0.3s;
 }
 
 .social-links a:hover {
     color: var(--neon-cyan);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px var(--neon-cyan);
 }
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 20px;
+    padding-top: 30px;
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    font-size: 0.75rem;
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
     color: var(--text-muted);
 }
 
 .legal-links {
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
 .legal-links a {
@@ -648,85 +624,75 @@ body {
 }
 
 /* ==========================================================================
-   ADAPTABILIDAD TOTAL (RESPONSIVE)
+   SISTEMA RESPONSIVE ADAPTABLE
    ========================================================================== */
-
-/* Tablets y escritorios pequeños */
 @media (max-width: 1100px) {
     .reading-layout {
-        grid-template-columns: 1fr; /* Colapsa el diseño a una columna */
-        gap: 30px;
+        grid-template-columns: 1fr;
     }
-    
     .sidebar {
-        order: 2; /* Pasa el sidebar abajo para priorizar la lectura */
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 240, 255, 0.15);
     }
-    
-    .reading-content {
-        order: 1;
-    }
-    
     .book-cover-container {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 30px;
-        text-align: left;
-    }
-    
-    .book-cover {
-        max-width: 130px;
-        margin-bottom: 0;
     }
 }
 
-/* Dispositivos Móviles */
 @media (max-width: 768px) {
     .main-header {
         padding: 15px 20px;
+        position: fixed;
     }
-
+    .menu-toggle-btn {
+        display: block;
+        color: var(--neon-cyan);
+        font-size: 1.5rem;
+    }
     .top-nav {
-        display: none; /* Ocultado por defecto para implementación limpia sin JS */
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background-color: #070c14;
+        padding: 100px 30px;
+        transition: right 0.4s ease;
+        border-left: 2px solid var(--neon-cyan-dim);
     }
-
-    .menu-toggle {
-        display: block; /* Muestra el disparador de hamburguesa */
-    }
-
-    .chapter-article {
-        padding: 30px 20px; /* Reducción de margen interno en pantallas compactas */
-    }
-
-    .book-title {
-        font-size: 2.2rem;
-    }
-
-    .chapter-name {
-        font-size: 1.4rem;
-    }
-
-    .chapter-text {
-        font-size: 1.15rem; /* Ajuste sutil de lectura móvil */
-    }
-
-    .bottom-cta {
+    .top-nav ul {
         flex-direction: column;
-        text-align: center;
-        padding: 25px;
+        gap: 25px;
     }
-
+    .nav-toggle:checked ~ .top-nav {
+        right: 0;
+    }
+    .reading-layout {
+        padding-top: 80px;
+    }
+    .book-title {
+        font-size: 2.8rem;
+    }
+    .chapter-article {
+        padding: 35px 20px;
+    }
+    .chapter-text {
+        font-size: 1.15rem;
+    }
+    .bottom-cta {
+        grid-template-columns: 1fr;
+    }
     .cta-image {
-        order: -1; /* La portada sube arriba en la caja móvil */
-        max-width: 100px;
+        height: 120px;
+        order: -1;
     }
-
     .footer-bottom {
         flex-direction: column;
         gap: 15px;
         text-align: center;
     }
-
     .legal-links {
         justify-content: center;
     }
