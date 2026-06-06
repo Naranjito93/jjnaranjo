@@ -1,0 +1,733 @@
+/* ==========================================================================
+   ESTILO GLOBAL: URBAN FANTASY / NEON CYBER-YOKAI (Inspirado en image_f3412c.jpg)
+   ========================================================================== */
+
+:root {
+    --bg-dark-void: #090e17;
+    --bg-panel-dark: rgba(14, 22, 35, 0.85);
+    --bg-dossier-light: #e6ecf2; /* Tono gris claro metalizado para lectura limpia */
+    --neon-cyan: #00e5ff;
+    --neon-cyan-dim: #008ba3;
+    --neon-glow: rgba(0, 229, 255, 0.35);
+    --text-light: #f0f5f7;
+    --text-dark: #121b29;
+    --text-muted: #8fa0b5;
+    
+    /* Fuentes del HTML */
+    --font-header: 'Cinzel', serif;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-ui: 'Montserrat', sans-serif;
+}
+
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark-void);
+    /* Textura de fondo con rejilla industrial y gradientes de neón cruzados */
+    background-image: 
+        linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at 10% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 139, 163, 0.1) 0%, transparent 50%);
+    background-size: 30px 30px, 30px 30px, auto, auto;
+    color: var(--text-light);
+    font-family: var(--font-ui);
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   HEADER / BARRA DE NAVEGACIÓN SUPERIOR
+   ========================================================================== */
+
+.main-header {
+    background: rgba(10, 16, 26, 0.95);
+    border-bottom: 2px solid var(--neon-cyan-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px var(--neon-glow);
+}
+
+.logo h1 {
+    font-family: var(--font-header);
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+.logo small {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    color: var(--neon-cyan);
+    display: block;
+    margin-top: 2px;
+}
+
+.top-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.top-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+.top-nav a:hover, .top-nav a.active {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-glow);
+}
+
+/* Subrayado de neón activo */
+.top-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--neon-cyan);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   DISEÑO INTERIOR (LAYOUT DE DOS COLUMNAS)
+   ========================================================================== */
+
+.reading-layout {
+    max-width: 1400px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   SIDEBAR (MENÚ E INFORMACIÓN LATERAL)
+   ========================================================================== */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.back-link {
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s;
+}
+
+.back-link:hover {
+    transform: translateX(-5px);
+}
+
+.book-cover-container {
+    background: var(--bg-panel-dark);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+}
+
+.book-cover {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7), 0 0 15px rgba(0, 229, 255, 0.15);
+    margin-bottom: 15px;
+}
+
+.author-name {
+    font-family: var(--font-header);
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    color: var(--neon-cyan);
+}
+
+/* Separadores Rúnicos/Cyber */
+.sidebar-divider {
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.diamond-divider, .diamond-divider-large {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+    margin: 10px 0;
+    position: relative;
+}
+
+.diamond-divider::after, .diamond-divider-large::after {
+    content: '◆';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--neon-cyan);
+    font-size: 0.6rem;
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+/* Índice de capítulos táctico */
+.table-of-contents {
+    background: var(--bg-panel-dark);
+    border: 1px solid rgba(0, 229, 255, 0.15);
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.table-of-contents ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.table-of-contents a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.chapter-subtitle {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    padding-left: 15px;
+    margin-top: 2px;
+}
+
+.table-of-contents li.active a {
+    color: var(--neon-cyan);
+    font-weight: 600;
+}
+
+.table-of-contents li.active .chapter-subtitle {
+    color: var(--neon-cyan-dim);
+}
+
+.table-of-contents li.dots {
+    color: var(--text-muted);
+    padding-left: 15px;
+}
+
+/* Caja Promocional */
+.promo-box {
+    background: linear-gradient(135deg, rgba(14, 22, 35, 0.9) 0%, rgba(5, 36, 51, 0.9) 100%);
+    border: 2px dashed var(--neon-cyan-dim);
+    border-radius: 8px;
+    padding: 25px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.promo-icon {
+    font-size: 2rem;
+    color: var(--neon-cyan);
+    margin-bottom: 12px;
+    text-shadow: 0 0 10px var(--neon-glow);
+}
+
+.promo-box h3 {
+    font-family: var(--font-header);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.promo-box p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 18px;
+}
+
+.btn-sidebar {
+    display: block;
+    background: transparent;
+    border: 2px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 40px; /* Botones ovalados idénticos a los de la imagen */
+    letter-spacing: 2px;
+    box-shadow: 0 0 8px var(--neon-glow);
+    transition: all 0.3s ease;
+}
+
+.btn-sidebar:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-dark-void);
+    box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+/* ==========================================================================
+   CONTENIDO PRINCIPAL DE LECTURA (INFORME TÁCTICO)
+   ========================================================================== */
+
+.reading-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Banner de Cabecera del Capítulo */
+.hero-chapter {
+    background: radial-gradient(circle at center, rgba(10, 30, 50, 0.8), rgba(5, 10, 18, 0.95));
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 8px;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Adornos lineales de neón diagonales simulando la imagen */
+.hero-chapter::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: 10%; width: 80%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+}
+
+.saga-title {
+    font-size: 0.8rem;
+    color: var(--neon-cyan);
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.book-title {
+    font-family: var(--font-header);
+    font-size: 3rem;
+    color: #ffffff;
+    margin: 15px 0;
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.book-tagline {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 5px;
+}
+
+/* El bloque del manuscrito/artículo: emulando el panel central metálico gris */
+.chapter-article {
+    background-color: var(--bg-dossier-light);
+    border: 4px solid #b0bfd0;
+    border-radius: 6px;
+    padding: 50px 45px;
+    color: var(--text-dark);
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.6), 
+        inset 0 0 0 1px rgba(255,255,255,0.8),
+        inset 0 0 25px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+/* Remaches metálicos en las esquinas */
+.chapter-article::after {
+    content: '•';
+    position: absolute;
+    top: 5px; left: 10px;
+    font-size: 1.2rem; color: #78899c;
+    text-shadow: 23px 0 #78899c, 0 100% #78899c; /* Multi-remaches por sombra */
+}
+
+.chapter-header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px dashed rgba(0,0,0,0.15);
+    padding-bottom: 20px;
+}
+
+.chapter-number {
+    font-size: 0.8rem;
+    color: var(--neon-cyan-dim);
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.chapter-name {
+    font-family: var(--font-header);
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+/* Estilos de maquetación del texto literario */
+.chapter-text {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.chapter-text p {
+    margin-bottom: 20px;
+}
+
+/* Letra capital del primer párrafo */
+.first-paragraph::first-letter {
+    font-family: var(--font-header);
+    font-size: 3.5rem;
+    float: left;
+    margin-right: 10px;
+    line-height: 1;
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+/* Estilos de maquetación del texto literario */
+.chapter-text {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* 1. Aplicamos la sangría a todos los párrafos por defecto */
+.chapter-text p {
+    margin-bottom: 12px; /* Reducido un poco para que luzca más como un libro real */
+    text-indent: 2em;    /* Añade la sangría de dos caracteres hacia dentro */
+}
+
+/* 2. Forzamos a que el primer párrafo empiece completamente a la izquierda */
+.chapter-text p.first-paragraph {
+    text-indent: 0;
+}
+
+/* Letra capital del primer párrafo (se mantiene igual) */
+.first-paragraph::first-letter {
+    font-family: var(--font-header);
+    font-size: 3.5rem;
+    float: left;
+    margin-right: 10px;
+    line-height: 1;
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+.diamond-divider-large {
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.2), transparent);
+    margin: 40px 0;
+}
+.diamond-divider-large::after {
+    color: #4a5768;
+    text-shadow: none;
+}
+
+/* Navegación entre capítulos */
+.chapter-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.btn-nav {
+    background: transparent;
+    border: 2px solid #9fb0c4;
+    color: #4a5768;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 40px;
+    letter-spacing: 1.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn-nav:hover:not(.disabled) {
+    border-color: var(--text-dark);
+    color: var(--text-dark);
+    background: rgba(0,0,0,0.03);
+}
+
+.btn-nav.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   BOTTOM CTA (CAJA DE LLAMADA A LA ACCIÓN INFERIOR)
+   ========================================================================== */
+
+.bottom-cta {
+    background: linear-gradient(135deg, #0e1624 0%, #072a3a 100%);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 8px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.cta-content {
+    flex: 1;
+}
+
+.cta-content h3 {
+    font-family: var(--font-header);
+    font-size: 1.1rem;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.cta-content p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.cta-content strong {
+    color: var(--neon-cyan);
+}
+
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 2px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px var(--neon-glow);
+    transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-dark-void);
+    box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.cta-image {
+    max-width: 140px;
+}
+
+.cta-image img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.6));
+}
+
+/* ==========================================================================
+   FOOTER PRINCIPAL
+   ========================================================================== */
+
+.main-footer {
+    background: #05080f;
+    border-top: 1px solid rgba(0, 229, 255, 0.15);
+    padding: 50px 20px 30px 20px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.footer-quote {
+    font-family: var(--font-header);
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    font-style: italic;
+}
+
+.social-links {
+    margin-bottom: 40px;
+}
+
+.follow-text {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.social-links .icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--neon-cyan);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.legal-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.legal-links a:hover {
+    color: var(--neon-cyan);
+}
+
+/* ==========================================================================
+   ADAPTABILIDAD TOTAL (RESPONSIVE)
+   ========================================================================== */
+
+/* Tablets y escritorios pequeños */
+@media (max-width: 1100px) {
+    .reading-layout {
+        grid-template-columns: 1fr; /* Colapsa el diseño a una columna */
+        gap: 30px;
+    }
+    
+    .sidebar {
+        order: 2; /* Pasa el sidebar abajo para priorizar la lectura */
+    }
+    
+    .reading-content {
+        order: 1;
+    }
+    
+    .book-cover-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        text-align: left;
+    }
+    
+    .book-cover {
+        max-width: 130px;
+        margin-bottom: 0;
+    }
+}
+
+/* Dispositivos Móviles */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 20px;
+    }
+
+    .top-nav {
+        display: none; /* Ocultado por defecto para implementación limpia sin JS */
+    }
+
+    .menu-toggle {
+        display: block; /* Muestra el disparador de hamburguesa */
+    }
+
+    .chapter-article {
+        padding: 30px 20px; /* Reducción de margen interno en pantallas compactas */
+    }
+
+    .book-title {
+        font-size: 2.2rem;
+    }
+
+    .chapter-name {
+        font-size: 1.4rem;
+    }
+
+    .chapter-text {
+        font-size: 1.15rem; /* Ajuste sutil de lectura móvil */
+    }
+
+    .bottom-cta {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .cta-image {
+        order: -1; /* La portada sube arriba en la caja móvil */
+        max-width: 100px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .legal-links {
+        justify-content: center;
+    }
+}
