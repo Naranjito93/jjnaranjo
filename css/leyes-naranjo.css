@@ -1,0 +1,579 @@
+/* PALETA DE COLORES Y PARÁMETROS FILTRADOS */
+:root {
+    --bg-void-black: #040508;
+    --bg-gothic-panel: rgba(10, 12, 18, 0.96);
+    --bg-card-inner: #0b0e14;
+    --gold-metallic: #c0a062;
+    --gold-faded-border: rgba(192, 160, 98, 0.2);
+    --gold-bright: #ebd09e;
+    --gold-glow-effect: rgba(192, 160, 98, 0.08);
+    --text-primary-ancient: #e0dacf;
+    --text-secondary-faded: #a29b8f;
+    --font-ancient-serif: 'Cinzel', serif;
+    --font-clean-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-void-black);
+    /* Fondo atmosférico de niebla cósmica/mágica usando gradientes */
+    background-image: 
+        radial-gradient(circle at 50% 15%, rgba(35, 45, 65, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(192, 160, 98, 0.02) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(20, 25, 40, 0.3) 0%, transparent 50%);
+    color: var(--text-primary-ancient);
+    font-family: var(--font-clean-sans);
+    line-height: 1.6;
+    padding: 0 20px 40px 20px;
+    overflow-x: hidden;
+}
+
+/* MENÚ DE NAVEGACIÓN ANCIENT */
+.navbar-ancient {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--gold-faded-border);
+    gap: 20px;
+}
+
+.nav-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid var(--gold-metallic);
+    overflow: hidden;
+    box-shadow: 0 0 10px var(--gold-glow-effect);
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav-brand h2 {
+    font-family: var(--font-ancient-serif);
+    font-size: 0.95rem;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+}
+
+.nav-brand span {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--gold-text);
+    letter-spacing: 1px;
+    color: var(--text-secondary-faded);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-primary-ancient);
+    text-decoration: none;
+    font-family: var(--font-ancient-serif);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold-bright);
+    text-shadow: 0 0 8px rgba(235, 208, 158, 0.4);
+}
+
+.nav-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-socials a {
+    color: var(--text-secondary-faded);
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-socials a:hover {
+    color: var(--gold-metallic);
+}
+
+/* HERO TITLE SECTION */
+.codex-hero {
+    text-align: center;
+    margin: 50px auto 30px auto;
+    max-width: 900px;
+}
+
+.codex-hero h1 {
+    font-family: var(--font-ancient-serif);
+    font-size: 2.2rem;
+    color: var(--gold-bright);
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(192, 160, 98, 0.2);
+    margin-bottom: 8px;
+}
+
+.hero-subtitle {
+    font-family: var(--font-clean-sans);
+    font-weight: 300;
+    font-size: 1rem;
+    color: var(--text-secondary-faded);
+    letter-spacing: 1px;
+}
+
+/* EMBLEMA CENTRAL CINÉTICO (RECREACIÓN CSS) */
+.cosmic-emblem-container {
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.runic-ring-outer {
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(192, 160, 98, 0.15);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+
+.runic-ring-outer::before {
+    content: '';
+    position: absolute;
+    width: 112%; height: 112%;
+    border: 1px dashed rgba(192, 160, 98, 0.08);
+    border-radius: 50%;
+}
+
+.runic-ring-inner {
+    width: 210px;
+    height: 210px;
+    border: 1px double var(--gold-faded-border);
+    border-radius: 50%;
+    position: absolute;
+}
+
+/* Ejes de Brillo en Cruz */
+.star-axis-vertical {
+    position: absolute;
+    width: 1px;
+    height: 340px;
+    background: linear-gradient(to bottom, transparent, var(--gold-metallic), transparent);
+}
+.star-axis-vertical::before, .star-axis-vertical::after {
+    content: '▲';
+    position: absolute;
+    left: -5px;
+    color: var(--gold-metallic);
+    font-size: 0.6rem;
+}
+.star-axis-vertical::before { top: -5px; }
+.star-axis-vertical::after { bottom: -5px; transform: rotate(180deg); }
+
+.star-axis-horizontal {
+    position: absolute;
+    width: 340px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-metallic), transparent);
+}
+
+.emblem-core {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #06090e;
+    border: 1px solid var(--gold-metallic);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 5;
+    box-shadow: 0 0 30px rgba(192, 160, 98, 0.25), inset 0 0 15px rgba(0,0,0,1);
+}
+
+.emblem-core h3 {
+    font-family: var(--font-ancient-serif);
+    font-size: 0.75rem;
+    color: var(--gold-bright);
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+
+/* CONTENEDOR DE PILARES REPTANTES (4 COLUMNAS DE LEYES) */
+.laws-grid-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+.law-pillar-card {
+    background: var(--bg-gothic-panel);
+    border: 1px solid var(--gold-faded-border);
+    border-radius: 8px 8px 4px 4px;
+    padding: 30px 20px 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.9), 0 10px 30px rgba(0,0,0,0.6);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s;
+}
+
+.law-pillar-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(192, 160, 98, 0.5);
+    box-shadow: 0 15px 35px rgba(192, 160, 98, 0.08), inset 0 0 25px rgba(0,0,0,0.9);
+}
+
+/* Remate superior estilo arco ojival sutil */
+.law-pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid rgba(192, 160, 98, 0.03);
+    pointer-events: none;
+}
+
+/* Piedras rúnicas flotantes superiores */
+.pillar-rune-stone {
+    width: 60px;
+    height: 70px;
+    background: #12161f;
+    border: 1px solid var(--gold-faded-border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.7), inset 0 0 10px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+/* Efecto de piedra agrietada/grabada */
+.pillar-rune-stone::after {
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, transparent 45%, rgba(0,0,0,0.4) 50%, transparent 55%);
+}
+
+.ancient-glyph {
+    font-family: var(--font-ancient-serif);
+    font-size: 1.6rem;
+    color: var(--gold-bright);
+    text-shadow: 0 0 8px rgba(192, 160, 98, 0.6);
+}
+
+.golden-icon {
+    font-size: 1.5rem;
+    color: var(--gold-bright);
+    text-shadow: 0 0 8px rgba(192, 160, 98, 0.6);
+}
+
+/* Contenidos internos */
+.pillar-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pillar-content h3 {
+    font-family: var(--font-ancient-serif);
+    color: var(--gold-bright);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    min-height: 44px; /* Alineación simétrica de títulos largos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.law-core-text {
+    font-size: 0.85rem;
+    color: var(--text-primary-ancient);
+    margin-bottom: 20px;
+}
+
+.pillar-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold-faded-border);
+    margin: 0 auto 20px auto;
+}
+
+.law-adaptation-box {
+    text-align: left;
+    background: var(--bg-card-inner);
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid rgba(192, 160, 98, 0.05);
+    margin-top: auto; /* Empuja las cajas de adaptación hacia abajo de manera uniforme */
+}
+
+.law-adaptation-box h4 {
+    font-family: var(--font-ancient-serif);
+    font-size: 0.75rem;
+    color: var(--gold-metallic);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(192, 160, 98, 0.1);
+    padding-bottom: 4px;
+}
+
+.law-adaptation-box ul {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+.law-adaptation-box ul li {
+    font-size: 0.8rem;
+    color: var(--text-secondary-faded);
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.4;
+}
+
+.law-adaptation-box ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--gold-metallic);
+}
+
+.law-adaptation-box strong {
+    color: var(--text-primary-ancient);
+}
+
+.law-footer-note {
+    font-size: 0.75rem !important;
+    color: var(--text-secondary-faded) !important;
+    font-style: italic;
+    border-top: 1px dashed rgba(192, 160, 98, 0.1);
+    padding-top: 8px;
+    margin-top: 5px;
+    line-height: 1.3;
+}
+
+/* Pilar Destacado (Segunda Ley - Central en la Composición) */
+.highlighted-pillar {
+    border-color: rgba(192, 160, 98, 0.35);
+    background: linear-gradient(to bottom, #0d111a 0%, var(--bg-gothic-panel) 100%);
+}
+
+
+/* SECCIÓN DE ENMARQUE HORIZONTAL (LEY CERO) */
+.horizontal-framework-box {
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
+    background: var(--bg-gothic-panel);
+    border: 1px solid var(--gold-faded-border);
+    border-radius: 4px;
+    padding: 25px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.framework-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.framework-badge {
+    width: 45px;
+    height: 45px;
+    border: 1px solid var(--gold-metallic);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-ancient-serif);
+    font-weight: bold;
+    color: var(--gold-bright);
+    background: rgba(0,0,0,0.4);
+    box-shadow: 0 0 10px var(--gold-glow-effect);
+}
+
+.framework-header h3 {
+    font-family: var(--font-ancient-serif);
+    font-size: 0.85rem;
+    color: var(--gold-bright);
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.framework-body {
+    border-left: 1px solid rgba(192, 160, 98, 0.15);
+    padding-left: 25px;
+}
+
+.ley-cero-statement {
+    font-family: var(--font-ancient-serif);
+    font-size: 1.05rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    text-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+
+.ley-cero-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary-faded);
+}
+
+
+/* BOTONES DE CONTROL DE PIE DE PÁGINA */
+.action-footer-buttons {
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.btn-ancient-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-primary-ancient);
+    text-decoration: none;
+    font-family: var(--font-ancient-serif);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    border: 1px solid var(--gold-faded-border);
+    padding: 10px 22px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.btn-ancient-outline:hover {
+    background: var(--gold-style);
+    border-color: var(--gold-bright);
+    color: var(--bg-void-black);
+    background-color: var(--gold-bright);
+    box-shadow: 0 0 15px rgba(192,160,98,0.2);
+}
+
+.center-seal-node {
+    font-size: 1.4rem;
+    color: var(--gold-faded-border);
+}
+
+
+/* BARRA DE COLA MÍTICA */
+.codex-footer-bar {
+    text-align: center;
+    font-family: var(--font-ancient-serif);
+    font-size: 0.75rem;
+    color: var(--text-secondary-faded);
+    letter-spacing: 2px;
+    margin-top: 50px;
+    border-top: 1px solid rgba(192, 160, 98, 0.1);
+    padding-top: 20px;
+    opacity: 0.7;
+}
+
+
+/* MEDIAS REGLAS DE ADAPTACIÓN (RESPONSIVE) */
+
+/* Pantallas Grandes/Medianas (Portátiles y Tablets Apaisadas) */
+@media (max-width: 1200px) {
+    .laws-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    .navbar-ancient {
+        flex-direction: column;
+        gap: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+/* Pantallas de Tablets Verticales */
+@media (max-width: 900px) {
+    .horizontal-framework-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    .framework-body {
+        border-left: none;
+        border-top: 1px dashed rgba(192, 160, 98, 0.15);
+        padding-left: 0;
+        padding-top: 20px;
+    }
+    .action-footer-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .center-seal-node {
+        display: none;
+    }
+}
+
+/* Móviles */
+@media (max-width: 650px) {
+    body {
+        padding: 0 12px 30px 12px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+    }
+    .codex-hero h1 {
+        font-size: 1.5rem;
+    }
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+    .cosmic-emblem-container {
+        height: 300px;
+        transform: scale(0.85); /* Escalado controlado del núcleo para que no desborde */
+    }
+    .laws-grid-container {
+        grid-template-columns: 1fr;
+    }
+    .law-pillar-card {
+        padding: 25px 15px;
+    }
+    .pillar-content h3 {
+        min-height: auto;
+    }
+}
