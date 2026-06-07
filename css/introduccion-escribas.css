@@ -1,19 +1,11 @@
 /* VARIABLES GLOBALES */
 :root {
-    --bg-dark-void: #0b111a;      /* Fondo azul oscuro/asfalto de la ciudad */
-    --bg-panel-dark: rgba(12, 23, 36, 0.85); /* Paneles oscuros integrados */
-    --bg-dossier-light: #e1e7ee;  /* Gris claro metalizado de la placa central */
-    
-    /* Neones característicos de la imagen */
-    --neon-cyan: #00f0ff;         /* Cian brillante eléctrico */
-    --neon-cyan-dim: #009cb3;     /* Cian apagado para bordes */
-    --neon-glow: rgba(0, 240, 255, 0.3);
-    
-    /* Textos */
-    --text-light: #f0f6fc;        /* Blanco azulado para zonas oscuras */
-    --text-dark: #101721;         /* Texto oscuro para la placa de lectura */
-    --text-muted: #708499;        /* Gris de soporte */
-
+    --bg-dark: #0a1216;        /* Fondo oscuro de la nebulosa celestial */
+    --bg-panel: #1c1613;       /* Sepia/marrón oscuro de los marcos y footer */
+    --gold: #baa17b;           /* Oro/bronce elegante de los títulos principales */
+    --gold-dark: #7a6850;      /* Oro viejo/apagado de los detalles decorativos */
+    --text-primary: #e5e1da;   /* Crema claro texturizado para lectura principal */
+    --text-secondary: #999083; /* Taupe/gris suave para textos de soporte */
     --font-heading: 'Cinzel', serif;
     --font-body: 'Cormorant Garamond', serif;
     --font-ui: 'Montserrat', sans-serif;
@@ -26,8 +18,8 @@
 }
 
 body {
-    background-color: var(--bg-dark-void);
-    color: var(--text-light);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.6;
     font-size: 18px;
@@ -55,7 +47,7 @@ a {
 
 .logo h1 {
     font-family: var(--font-heading);
-    color: var(--neon-cyan);
+    color: var(--gold);
     font-size: 1.5rem;
     font-weight: 500;
     letter-spacing: 2px;
@@ -63,7 +55,7 @@ a {
 
 .logo small {
     font-size: 0.65rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     letter-spacing: 3px;
     display: block;
 }
@@ -77,18 +69,18 @@ a {
 .top-nav a {
     font-size: 0.75rem;
     letter-spacing: 1.5px;
-    color: var(--text-light);
+    color: var(--text-primary);
 }
 
 .top-nav a:hover, .top-nav a.active {
-    color: var(--neon-cyan);
+    color: var(--gold);
 }
 
 .menu-toggle {
     display: none;
     background: none;
     border: none;
-    color: var(--neon-cyan);
+    color: var(--gold);
     font-size: 1.5rem;
     cursor: pointer;
 }
@@ -102,8 +94,8 @@ a {
 /* BARRA LATERAL */
 .sidebar {
     width: 320px;
-    background-color: var(--bg-panel-dark);
-    border-right: 1px solid var(--neon-cyan-dim);
+    background-color: var(--bg-dark);
+    border-right: 1px solid rgba(186, 161, 123, 0.15);
     padding: 40px 30px;
     display: flex;
     flex-direction: column;
@@ -119,19 +111,19 @@ a {
     width: 4px;
 }
 .sidebar::-webkit-scrollbar-thumb {
-    background-color: var(--neon-cyan-dim);
+    background-color: var(--gold-dark);
 }
 
 .back-link {
     font-size: 0.7rem;
     letter-spacing: 1.5px;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     margin-bottom: 40px;
     display: inline-block;
 }
 
 .back-link:hover {
-    color: var(--neon-cyan);
+    color: var(--gold);
 }
 
 .book-cover-container {
@@ -149,13 +141,13 @@ a {
     font-family: var(--font-ui);
     font-size: 0.75rem;
     letter-spacing: 2px;
-    color: var(--text-muted);
+    color: var(--text-secondary);
 }
 
 .sidebar-divider {
     text-align: center;
     font-family: var(--font-heading);
-    color: var(--text-light);
+    color: var(--text-primary);
     margin-bottom: 30px;
 }
 
@@ -168,7 +160,7 @@ a {
 .diamond-divider {
     width: 60px;
     height: 1px;
-    background: var(--neon-cyan-dim);
+    background: var(--gold-dark);
     margin: 15px auto;
     position: relative;
 }
@@ -179,9 +171,9 @@ a {
     top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    color: var(--neon-cyan-dim);
+    color: var(--gold-dark);
     font-size: 12px;
-    background: var(--bg-dark-void);
+    background: var(--bg-dark);
     padding: 0 5px;
 }
 
@@ -198,7 +190,7 @@ a {
     font-family: var(--font-heading);
     font-size: 0.85rem;
     letter-spacing: 1.5px;
-    color: var(--text-light);
+    color: var(--text-primary);
     margin-bottom: 4px;
 }
 
@@ -206,31 +198,31 @@ a {
     display: block;
     font-family: var(--font-body);
     font-size: 1rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-style: italic;
 }
 
 .table-of-contents li.active a, 
 .table-of-contents li.active .chapter-subtitle {
-    color: var(--neon-cyan);
+    color: var(--gold);
 }
 
 .table-of-contents li.dots {
-    color: var(--text-muted);
+    color: var(--text-secondary);
     letter-spacing: 2px;
 }
 
 .promo-box {
     margin-top: 40px;
     padding: 25px 20px;
-    border: 1px solid var(--neon-cyan-dim);
+    border: 1px solid rgba(186, 161, 123, 0.3);
     text-align: center;
-    background: radial-gradient(circle at top, var(--neon-glow), transparent);
+    background: radial-gradient(circle at top, rgba(186, 161, 123, 0.05), transparent);
 }
 
 .promo-icon {
     font-size: 1.8rem;
-    color: var(--neon-cyan);
+    color: var(--gold);
     margin-bottom: 10px;
 }
 
@@ -243,7 +235,7 @@ a {
 
 .promo-box p {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     margin-bottom: 20px;
     line-height: 1.4;
 }
@@ -251,8 +243,8 @@ a {
 .btn-sidebar {
     display: block;
     padding: 10px;
-    border: 1px solid var(--neon-cyan-dim);
-    color: var(--neon-cyan);
+    border: 1px solid var(--gold-dark);
+    color: var(--gold);
     font-size: 0.7rem;
     letter-spacing: 1px;
     background: transparent;
@@ -260,7 +252,7 @@ a {
 }
 
 .btn-sidebar:hover {
-    background: var(--neon-glow);
+    background: rgba(186, 161, 123, 0.1);
 }
 
 /* ÁREA DE LECTURA (CONTENIDO) */
@@ -272,13 +264,13 @@ a {
 
 .hero-chapter {
     height: 400px;
-    background: linear-gradient(to bottom, rgba(11, 17, 26, 0.3), var(--bg-dark-void)),
+    background: linear-gradient(to bottom, rgba(10,18,22,0.3), var(--bg-dark)),
                 url('https://via.placeholder.com/1200x500/111/333?text=Fondo+Castillo+Oscuro') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 60px;
+    padding-top: 60px; /* Espacio para el header fijo */
 }
 
 .hero-overlay {
@@ -288,7 +280,7 @@ a {
 .saga-title {
     font-size: 0.9rem;
     letter-spacing: 3px;
-    color: var(--neon-cyan);
+    color: var(--gold);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -300,7 +292,7 @@ a {
     font-size: 5rem;
     font-weight: 400;
     letter-spacing: 8px;
-    color: var(--neon-cyan);
+    color: var(--gold);
     margin-bottom: 10px;
     text-shadow: 0 5px 20px rgba(0,0,0,0.8);
 }
@@ -309,16 +301,13 @@ a {
     font-family: var(--font-ui);
     font-size: 0.8rem;
     letter-spacing: 4px;
-    color: var(--text-light);
+    color: var(--text-primary);
 }
 
 .chapter-article {
     max-width: 800px;
     margin: 0 auto;
     padding: 60px 40px;
-    background-color: var(--bg-dossier-light);
-    color: var(--text-dark);
-    border-radius: 4px;
 }
 
 .chapter-header {
@@ -329,7 +318,7 @@ a {
 
 .chapter-number {
     font-size: 0.85rem;
-    color: var(--neon-cyan-dim);
+    color: var(--gold);
     letter-spacing: 2px;
     display: flex;
     align-items: center;
@@ -342,19 +331,19 @@ a {
     font-size: 2.2rem;
     font-weight: 400;
     letter-spacing: 2px;
-    color: var(--text-dark);
+    color: var(--gold);
 }
 
 /* ESTILOS DE TEXTO DEL CAPÍTULO */
 .chapter-text {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .chapter-text p {
     margin-bottom: 1.5em;
-    text-indent: 2em;
+    text-indent: 2em; /* Sangría clásica de libro */
 }
 
 /* Letra capital (Drop Cap) para el primer párrafo */
@@ -369,13 +358,13 @@ a {
     line-height: 0.8;
     padding-right: 15px;
     padding-top: 5px;
-    color: var(--text-muted);
+    color: var(--text-secondary);
 }
 
 .diamond-divider-large {
     width: 100px;
     height: 1px;
-    background: var(--neon-cyan-dim);
+    background: var(--gold-dark);
     margin: 60px auto;
     position: relative;
 }
@@ -386,9 +375,9 @@ a {
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    color: var(--neon-cyan-dim);
+    color: var(--gold-dark);
     font-size: 16px;
-    background: var(--bg-dossier-light);
+    background: var(--bg-dark);
     padding: 0 10px;
 }
 
@@ -402,8 +391,8 @@ a {
 
 .btn-nav {
     padding: 12px 25px;
-    border: 1px solid var(--neon-cyan-dim);
-    color: var(--text-muted);
+    border: 1px solid var(--gold-dark);
+    color: var(--text-secondary);
     font-size: 0.75rem;
     letter-spacing: 1.5px;
     border-radius: 2px;
@@ -413,8 +402,8 @@ a {
 }
 
 .btn-nav:hover {
-    color: var(--neon-cyan);
-    border-color: var(--neon-cyan);
+    color: var(--gold);
+    border-color: var(--gold);
 }
 
 .btn-nav.disabled {
@@ -425,8 +414,8 @@ a {
 /* BANNER CTA INFERIOR */
 .bottom-cta {
     display: flex;
-    background: linear-gradient(to right, var(--bg-panel-dark), transparent);
-    border: 1px solid var(--neon-cyan-dim);
+    background: linear-gradient(to right, var(--bg-panel), transparent);
+    border: 1px solid rgba(186, 161, 123, 0.2);
     border-radius: 4px;
     overflow: hidden;
 }
@@ -442,7 +431,7 @@ a {
 
 .cta-content h3 {
     font-family: var(--font-heading);
-    color: var(--text-light);
+    color: var(--text-primary);
     font-size: 1.4rem;
     margin-bottom: 15px;
     font-weight: 500;
@@ -451,14 +440,14 @@ a {
 .cta-content p {
     font-family: var(--font-ui);
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     margin-bottom: 25px;
     line-height: 1.5;
 }
 
 .btn-cta {
-    background: var(--neon-cyan);
-    color: var(--bg-dark-void);
+    background: var(--gold-dark);
+    color: var(--bg-dark);
     font-family: var(--font-ui);
     padding: 12px 25px;
     font-size: 0.8rem;
@@ -471,7 +460,7 @@ a {
 }
 
 .btn-cta:hover {
-    background: var(--neon-cyan-dim);
+    background: var(--gold);
 }
 
 .cta-image {
@@ -488,10 +477,10 @@ a {
 
 /* FOOTER */
 .main-footer {
-    background-color: var(--bg-dark-void);
+    background-color: var(--bg-dark);
     padding: 60px 40px 30px;
     text-align: center;
-    border-top: 1px solid var(--neon-cyan-dim);
+    border-top: 1px solid rgba(186, 161, 123, 0.1);
     font-family: var(--font-ui);
 }
 
@@ -499,7 +488,7 @@ a {
     font-family: var(--font-body);
     font-size: 1.5rem;
     font-style: italic;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     margin-bottom: 40px;
 }
 
@@ -507,7 +496,7 @@ a {
     font-family: var(--font-heading);
     font-size: 0.9rem;
     letter-spacing: 2px;
-    color: var(--text-light);
+    color: var(--text-primary);
     margin-bottom: 20px;
 }
 
@@ -516,12 +505,12 @@ a {
     justify-content: center;
     gap: 25px;
     font-size: 1.4rem;
-    color: var(--neon-cyan-dim);
+    color: var(--gold-dark);
     margin-bottom: 60px;
 }
 
 .social-links .icons a:hover {
-    color: var(--neon-cyan);
+    color: var(--gold);
 }
 
 .footer-bottom {
@@ -529,7 +518,7 @@ a {
     justify-content: space-between;
     align-items: center;
     font-size: 0.7rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     letter-spacing: 1px;
     border-top: 1px solid rgba(255,255,255,0.05);
     padding-top: 30px;
@@ -541,7 +530,7 @@ a {
 }
 
 .legal-links a:hover {
-    color: var(--text-light);
+    color: var(--text-primary);
 }
 
 /* RESPONSIVE */
@@ -555,8 +544,8 @@ a {
         height: auto;
         position: relative;
         border-right: none;
-        border-bottom: 1px solid var(--neon-cyan-dim);
-        padding-top: 100px;
+        border-bottom: 1px solid rgba(186, 161, 123, 0.15);
+        padding-top: 100px; /* Espacio para el nav */
     }
 
     .book-cover-container {
@@ -566,7 +555,7 @@ a {
     }
 
     .main-header {
-        background: var(--bg-dark-void);
+        background: var(--bg-dark);
         border-bottom: 1px solid rgba(255,255,255,0.05);
         position: fixed;
     }
