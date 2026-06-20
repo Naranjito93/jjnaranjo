@@ -1,0 +1,542 @@
+/* ==========================================================================
+   VARIABLES GLOBALES (Inspiradas en la interfaz de pergamino y madera noble)
+   ========================================================================== */
+:root {
+    /* Fondos y Marcos Extranjeros */
+    --wood-dark: #19120c;        /* Tono base madera noble oscura */
+    --wood-medium: #261c13;      /* Marcos de contenedores */
+    --parchment-bg: #e6dac3;     /* Fondo del pergamino claro para lectura clara */
+    --parchment-border: #8c7653; /* Tono de tinta sepia envejecida */
+    
+    /* Colores de Acento Místico */
+    --glow-blue: #55aaff;        /* Brillo de las gemas/runas cargadas */
+    --glow-dim: #1d354d;         /* Azul oscuro místico */
+    
+    /* Tipografías */
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-ui: 'Montserrat', sans-serif;
+    
+    /* Colores de Texto */
+    --text-dark: #2c251e;        /* Tinta oscura para máxima legibilidad en pergamino */
+    --text-light: #e5dec9;       /* Texto claro para interfaces sobre madera */
+    --text-gold: #c9af83;        /* Oro envejecido para encabezados de interfaz */
+}
+
+/* ==========================================================================
+   RESET Y REGLAS BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--wood-dark);
+    background-image: radial-gradient(circle at 50% 30%, var(--wood-medium), var(--wood-dark));
+    color: var(--text-light);
+    font-family: var(--font-ui);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   HEADER SUPERIOR (Mantiene el estilo del menú de navegación)
+   ========================================================================== */
+.main-header {
+    background-color: rgba(25, 18, 12, 0.95);
+    border-bottom: 2px solid var(--parchment-border);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.header-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h1 {
+    font-family: var(--font-heading);
+    color: var(--text-gold);
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+.logo-icon {
+    font-size: 1.4rem;
+    text-shadow: 0 0 10px var(--glow-blue);
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.top-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.top-nav a:hover, .top-nav a.active {
+    color: var(--glow-blue);
+    text-shadow: 0 0 8px rgba(85, 170, 255, 0.6);
+}
+
+/* ==========================================================================
+   ESTRUCTURA PRINCIPAL DE LECTURA
+   ========================================================================== */
+.reading-environment {
+    flex: 1;
+    padding: 40px 0;
+}
+
+.layout-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ==========================================================================
+   EL ARTÍCULO: CONTENEDOR ESTILO PERGAMINO
+   ========================================================================== */
+.scroll-parchment {
+    background-color: var(--parchment-bg);
+    color: var(--text-dark);
+    padding: 50px 45px;
+    border-radius: 4px;
+    box-shadow: 
+        0 0 0 8px var(--wood-medium),
+        0 15px 35px rgba(0,0,0,0.7);
+    border: 1px solid var(--parchment-border);
+    position: relative;
+}
+
+/* Adornos en las esquinas del pergamino */
+.scroll-parchment::before {
+    content: '';
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border: 1px solid rgba(140, 118, 83, 0.3);
+    pointer-events: none;
+}
+
+/* Encabezado interno */
+.article-meta {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    color: #6e583d;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.category-tag {
+    font-weight: 600;
+    color: #a62b2b; /* Tono lacre/rojo arcano */
+}
+
+.article-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    color: #1a1510;
+    font-weight: 700;
+}
+
+.runic-divider {
+    text-align: center;
+    color: var(--parchment-border);
+    letter-spacing: 10px;
+    margin-bottom: 35px;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   TIPOGRAFÍA Y CUERPO DE TEXTO (Estilo Libro)
+   ========================================================================== */
+.article-body {
+    font-family: var(--font-body);
+    font-size: 1.35rem;
+    line-height: 1.75;
+}
+
+.article-body p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Letra Capital Impactante */
+.first-paragraph::first-letter {
+    font-family: var(--font-heading);
+    font-size: 4.2rem;
+    float: left;
+    line-height: 0.85;
+    padding-right: 12px;
+    padding-top: 4px;
+    color: #1a1510;
+    font-weight: bold;
+}
+
+.article-body h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin: 35px 0 15px 0;
+    color: #4a3b2c;
+    border-bottom: 1px solid rgba(140, 118, 83, 0.4);
+    padding-bottom: 5px;
+}
+
+/* Citas Destacadas (Cajas de Textos de Sabios) */
+blockquote {
+    font-style: italic;
+    margin: 30px 20px;
+    padding-left: 25px;
+    border-left: 3px solid var(--parchment-border);
+    color: #594737;
+    font-size: 1.45rem;
+}
+
+/* Contenedores de Imágenes Internas */
+.inner-image-container {
+    margin: 35px 0;
+    border: 2px solid var(--parchment-border);
+    padding: 6px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.placeholder-img-art {
+    background-color: var(--wood-dark);
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-gold);
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px dashed rgba(201, 175, 131, 0.4);
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+}
+
+/* NAVEGACIÓN INFERIOR (PAGINADOR DE ARTÍCULOS) */
+.article-footer-nav {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(140, 118, 83, 0.4);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.btn-nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(140, 118, 83, 0.3);
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.btn-nav:hover {
+    background-color: rgba(140, 118, 83, 0.1);
+    border-color: var(--parchment-border);
+}
+
+.nav-arrow {
+    font-size: 1.5rem;
+    font-family: var(--font-ui);
+    color: #8c7653;
+}
+
+.nav-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-text span {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #7a6548;
+}
+
+.nav-text small {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.btn-nav.next {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+/* ==========================================================================
+   BARRA LATERAL (GRIMOIRE SIDEBAR)
+   ========================================================================== */
+.grimoire-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar-widget {
+    background-color: var(--wood-medium);
+    border: 1px solid rgba(201, 175, 131, 0.2);
+    padding: 25px 20px;
+    border-radius: 2px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.sidebar-widget h3 {
+    font-family: var(--font-heading);
+    color: var(--text-gold);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(201, 175, 131, 0.15);
+    padding-bottom: 10px;
+}
+
+/* Buscador */
+.search-box {
+    display: flex;
+}
+
+.search-box input {
+    flex: 1;
+    background-color: var(--wood-dark);
+    border: 1px solid rgba(201, 175, 131, 0.3);
+    padding: 10px 12px;
+    color: var(--text-light);
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--glow-blue);
+}
+
+.search-box button {
+    background-color: var(--wood-dark);
+    border: 1px solid rgba(201, 175, 131, 0.3);
+    border-left: none;
+    padding: 0 15px;
+    color: var(--text-gold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-box button:hover {
+    color: var(--glow-blue);
+}
+
+/* Categorías Widget */
+.categories-widget ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.categories-widget a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    transition: color 0.3s;
+}
+
+.categories-widget a:hover {
+    color: var(--text-gold);
+}
+
+.categories-widget a span {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem;
+}
+
+/* Caja de Suscripción (Efecto Lacre/Sello) */
+.subscribe-widget {
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, #2c2016, #1f160f);
+    border-color: rgba(201, 175, 131, 0.3);
+}
+
+.subscribe-widget p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.subscribe-widget input {
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    border: 1px solid rgba(201, 175, 131, 0.2);
+    padding: 12px;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.btn-scroll {
+    width: 100%;
+    background-color: var(--wood-dark);
+    border: 1px solid var(--text-gold);
+    color: var(--text-gold);
+    padding: 12px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-scroll:hover {
+    background-color: var(--text-gold);
+    color: var(--wood-dark);
+    box-shadow: 0 0 15px rgba(201, 175, 131, 0.4);
+}
+
+/* Botón de Retorno Completo */
+.btn-back-dashboard {
+    display: block;
+    text-align: center;
+    background: transparent;
+    border: 1px dashed rgba(201, 175, 131, 0.4);
+    color: rgba(255,255,255,0.5);
+    padding: 15px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s;
+}
+
+.btn-back-dashboard:hover {
+    border-color: var(--glow-blue);
+    color: var(--glow-blue);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.main-footer {
+    background-color: #110c08;
+    border-top: 1px solid rgba(201, 175, 131, 0.1);
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   REGLAS DE ADAPTACIÓN (RESPONSIVE)
+   ========================================================================== */
+
+/* Tabletas y Pantallas Medianas */
+@media (max-width: 1024px) {
+    .layout-container {
+        grid-template-columns: 1fr; /* Colapsa a una sola columna */
+        gap: 30px;
+    }
+    
+    .scroll-parchment {
+        padding: 40px 30px;
+    }
+    
+    .grimoire-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .btn-back-dashboard {
+        grid-column: span 2;
+    }
+}
+
+/* Dispositivos Móviles */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .top-nav ul {
+        gap: 15px;
+    }
+
+    .reading-environment {
+        padding: 20px 0;
+    }
+
+    .article-title {
+        font-size: 1.7rem;
+    }
+
+    .article-body {
+        font-size: 1.2rem;
+    }
+
+    .first-paragraph::first-letter {
+        font-size: 3.5rem;
+    }
+
+    .grimoire-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-back-dashboard {
+        grid-column: span 1;
+    }
+
+    .article-footer-nav {
+        flex-direction: column;
+    }
+    
+    .btn-nav.next {
+        text-align: left;
+        justify-content: flex-start;
+    }
+}
